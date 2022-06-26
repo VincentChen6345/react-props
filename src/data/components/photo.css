@@ -1,0 +1,13 @@
+.img-div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.profilePhoto {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
