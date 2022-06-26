@@ -3,11 +3,7 @@ import "./photo.css";
 const Photo = () => {
   return (
     <div className="img-div">
-      <img
-        src={profilePhoto}
-        alt="profile photo"
-        className="profilePhoto"
-      ></img>
+      <img src={profilePhoto} alt="profile" className="profilePhoto"></img>
     </div>
   );
 };
