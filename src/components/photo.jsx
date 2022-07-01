@@ -1,9 +1,9 @@
-import profilePhoto from "../data/portrait.jpeg";
+import ProfilePhoto from "../data/portrait.jpeg";
 import "./photo.css";
 const Photo = () => {
   return (
     <div className="img-div">
-      <img src={profilePhoto} alt="profile" className="profilePhoto"></img>
+      <img src={ProfilePhoto} alt="profile" className="profilePhoto" />
     </div>
   );
 };
