@@ -2,15 +2,16 @@ import "./user-profile.css";
 import React, { useState } from "react";
 
 const UserProfile = (props) => {
-  //Variables
-  // let name = props.details.name;
-  //   let age = props.details.age;
+  ///////////////
+  //////Variables
+
   let height = props.details.height;
   let job = props.details.job;
   let language = props.details.language;
   let favouriteFood = props.details["Favourite Food"];
 
-  // state variables
+  /////////////
+  ///// state variables
   let [age, setAge] = useState(props.details.age);
   const increaseAge = () => {
     setAge((age += 1));
@@ -25,6 +26,22 @@ const UserProfile = (props) => {
   };
   const englishName = () => {
     setName("Vincent Chen");
+  };
+  ///////////////////////////////////
+  //////FORM INPUT
+  const [greeting, setGreeting] = useState("");
+  const greetingChangeHandler = (e) => {
+    setGreeting(e.target.value);
+  };
+
+  //////Button submit handler//////
+  const submitHandler = (e) => {
+    e.preventDefault(); //prevents page from reloading
+    const greetingData = {
+      text: greeting,
+    };
+    console.log(greetingData.text);
+    setGreeting("");
   };
 
   return (
@@ -44,6 +61,18 @@ const UserProfile = (props) => {
         <li className="detail__item">Job:{job}</li>
         <li className="detail__item">Language:{language}</li>
         <li className="detail__item">Favourite Food:{favouriteFood}</li>
+        <li className="detail__item-form">
+          <form onSubmit={submitHandler} className="form-input">
+            <input
+              type="text"
+              onChange={greetingChangeHandler}
+              defaultValue="Say Hi!"
+              className="input"
+              value={greeting}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </li>
       </ul>
     </div>
   );
