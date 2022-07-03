@@ -4,12 +4,10 @@ import React, { useState } from "react";
 const UserProfile = (props) => {
   ///////////////
   //////Variables
-
   let height = props.details.height;
   let job = props.details.job;
   let language = props.details.language;
   let favouriteFood = props.details["Favourite Food"];
-
   /////////////
   ///// state variables
   let [age, setAge] = useState(props.details.age);
@@ -19,7 +17,6 @@ const UserProfile = (props) => {
   const decreaseAge = () => {
     setAge((age -= 1));
   };
-
   let [name, setName] = useState(props.details.name);
   const chineseName = () => {
     setName("陈翔");
@@ -29,19 +26,19 @@ const UserProfile = (props) => {
   };
   ///////////////////////////////////
   //////FORM INPUT
-  const [greeting, setGreeting] = useState("");
-  const greetingChangeHandler = (e) => {
-    setGreeting(e.target.value);
+  const [funFact, setFunFact] = useState("");
+  const funFactChangeHandler = (e) => {
+    setFunFact(e.target.value);
   };
-
+  //////////////////////////////////
   //////Button submit handler//////
   const submitHandler = (e) => {
     e.preventDefault(); //prevents page from reloading
-    const greetingData = {
-      text: greeting,
+    const funFactData = {
+      text: funFact,
     };
-    console.log(greetingData.text);
-    setGreeting("");
+    props.onSaveFunFactData(funFactData);
+    setFunFact("");
   };
 
   return (
@@ -65,12 +62,12 @@ const UserProfile = (props) => {
           <form onSubmit={submitHandler} className="form-input">
             <input
               type="text"
-              onChange={greetingChangeHandler}
-              defaultValue="Say Hi!"
+              onChange={funFactChangeHandler}
+              placeholder="Add a fun fact!"
               className="input"
-              value={greeting}
+              value={funFact}
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Add</button>
           </form>
         </li>
       </ul>
